@@ -1,0 +1,17 @@
+body{
+    background-image: url('f1.jpg');
+}
+
+.container{
+    background-color: aliceblue;
+    margin-top: 120px;
+    padding: 15px;
+    opacity: 0.75;
+    box-shadow: 4px 4px 4px 2px rgb(120, 165, 216);
+}
+
+h1{
+    margin-top: 30px;
+    margin-left: 15px;
+    font-weight: bold; 
+}

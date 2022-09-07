@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-from mvcCRUD.usuarios.models import persona
+from .models import persona
 
 # Create your views here.
 def index(request):

@@ -14,7 +14,7 @@
 <body>
     <ul class="nav mt-3">
         <li class="nav-item">
-          <a class="nav-link active fa-solid fa-user-plus text-black" aria-current="page" href="#">Agregar usuario</a>
+          <a class="nav-link active fa-solid fa-user-plus text-black" aria-current="page" href="{% url 'crear_persona' %}">Agregar usuario</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active fa-solid fa-map-pin text-black" href="{% url 'ciudades' %}">Gestor de ciudades</a>
@@ -43,7 +43,7 @@
                 {% for usuario in usuarios %}
                 <tr>
                     <td>{{usuario.nombres}}</td>
-                    <td> <button class="btn btn-success fa-sharp fa-solid fa-pen-to-square">Actualizar</button></td>
+                    <td> <a class="btn btn-success fa-sharp fa-solid fa-pen-to-square" href="{% url 'editar_persona' usuario.id %}" role="button">Actualizar</a></td>
                     <td> 
                         <form action="{% url 'delete_usuario' usuario.id %}" method="POST">
                             {% csrf_token %}
@@ -51,7 +51,6 @@
                         </form>
                     </td>
                 </tr>
-
                 {% empty %}
                     <tr>
                         <td>No hay usuarios</td>

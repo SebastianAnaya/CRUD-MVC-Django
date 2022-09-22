@@ -22,7 +22,7 @@
         <form action="{% url 'crear_documento' %}" method="POST" class="card card-body mb-2">
             {% csrf_token %}
             <label for="nombre">Tipo de documento:</label>
-            <input type="text" name="nombreTD" placeholder="Ingresa el nomrbe del tipo de odcumento" class="form-control mb-2"/>
+            <input type="text" name="nombreTD" placeholder="Ingresa el nombre del tipo de documento" class="form-control mb-2"/>
             <label for="descripcion">Escribe una descripcion:</label>
             <textarea name="descripcionTD" id="descripcion" rows="2" class="form-control mb-2" placeholder="(Opcional)"></textarea>
             <button class="btn btn-primary">Guardar</button>
@@ -49,7 +49,6 @@
                         </form>
                     </td>
                 </tr>
-
                 {% empty %}
                     <tr>
                         <td>No hay tipos de documento</td>

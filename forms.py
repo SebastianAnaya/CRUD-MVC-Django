@@ -6,6 +6,7 @@ from random import choices
 from django import forms
 from .models import Persona, Tipo_documento, Ciudad
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.hashers import make_password
 
 class TimesheetItemForm(forms.ModelForm):
 
@@ -44,7 +45,7 @@ class PersonaForm(forms.ModelForm):
             'id_tipo_documento': forms.Select(attrs={'class':'form-control'}), 
             'documento': forms.TextInput(attrs={'class':'form-control'}),
             'lugar_de_residencia': forms.Select(attrs={'class':'form-control'}), 
-            'fecha_nacimiento': forms.DateInput(format=('%d/%m/%Y'),
+            'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control', 
                     'type': 'date'  # <--- IF I REMOVE THIS LINE, THE INITIAL VALUE IS DISPLAYED
                     }), 
@@ -64,7 +65,7 @@ class PersonaForm(forms.ModelForm):
 
     def save(self, commit=True):
         persona = super().save(commit=False)
-        persona.set_password(self.cleaned_data['password'])
+        persona.password = ('password')
         if commit:
             persona.save()
         return persona

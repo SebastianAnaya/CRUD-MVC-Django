@@ -79,3 +79,12 @@ def nueva_persona(request):
     else:
         form = PersonaForm()
     return render(request, 'usuarios/crear_usuario.html', {'form':form})
+
+def editar_persona(request, usuario_id):
+    usuario = Persona.objects.get(id = usuario_id)
+    form = PersonaForm(request.POST or None, instance=usuario)
+    if form.is_valid() and request.POST: 
+        form.save()
+        return HttpResponseRedirect(reverse('index'))
+    return render (request, 'usuarios/editar_usuario.html', {'form':form})
+

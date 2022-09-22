@@ -11,5 +11,7 @@ urlpatterns = [
     path('documentos/', views.documento, name='documento'),
     path('crear_documento/', views.nuevo_documento, name='crear_documento'),
     path('delete_documento/<int:documento_id>/', views.delete_documento, name='delete_documento'),
-    path('crear_persona/', views.nueva_persona, name='crear_persona')
+    path('crear_persona/', views.nueva_persona, name='crear_persona'),
+    path('editar_persona/', views.editar_persona, name='editar_persona'),
+    path('editar_persona/<int:usuario_id>/', views.editar_persona, name='editar_persona'),
 ]
